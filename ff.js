@@ -32,11 +32,13 @@
 
       function getTracks() {
         var video = Lampa.PlayerVideo.video();
+				console.log('audioTrackz', video.audioTracks || [])
         return video.audioTracks || [];
       }
 
       function getSubs() {
         var video = Lampa.PlayerVideo.video();
+				console.log('textTrackz', video.textTracks || [])
         return video.textTracks || [];
       }
 
@@ -46,6 +48,7 @@
         if (inited_parse) {
           var new_tracks = [];
           var video_tracks = getTracks();
+					console.log('video_tracks', video_tracks)
           var parse_tracks = inited_parse.streams.filter(function (a) {
             return a.codec_type == 'audio';
           });
