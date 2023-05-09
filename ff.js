@@ -8,7 +8,7 @@
                 lang_data = data
             },
             translate: function (key) {
-                return lang_data[key] ? lang_data[key].en : key
+                return lang_data[key] ? lang_data[key].ru : key
             },
         }
     }
