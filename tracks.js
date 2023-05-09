@@ -60,9 +60,15 @@
           log('Tracks', 'filtred tracks:', parse_tracks.length);
           parse_tracks.forEach(function (track) {
             var orig = video_tracks[track.index - minus];
+              var language = track.tags.language.toLowerCase();
+if (language.startsWith('en')) {
+  language = 'eng';
+} else {
+  language = '';
+}
             var elem = {
               index: track.index - minus,
-              language: track.tags.language,
+              language: language,
               label: track.tags.title || track.tags.handler_name,
               ghost: orig ? false : true,
               selected: orig ? orig.selected == true || orig.enabled == true : false
@@ -110,9 +116,15 @@
           log('Tracks', 'filtred subs:', parse_subs.length);
           parse_subs.forEach(function (track) {
             var orig = video_subs[track.index - minus];
+              var language = track.tags.language.toLowerCase();
+if (language.startsWith('en')) {
+  language = 'eng';
+} else {
+  language = '';
+}
             var elem = {
               index: track.index - minus,
-              language: track.tags.language,
+              language: language,
               label: track.tags.title || track.tags.handler_name,
               ghost: video_subs[track.index - minus] ? false : true,
               selected: orig ? orig.selected == true || orig.mode == 'showing' : false
